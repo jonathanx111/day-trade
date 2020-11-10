@@ -267,18 +267,7 @@ class CLI
         
 
             when 3
-                new = Game.all.map{|g| g.user_balance}.max(10)
-                puts "1) $" + new[0].to_s
-                puts "2) $" + new[1].to_s
-                puts "3) $" + new[2].to_s
-                puts "4) $" + new[3].to_s
-                puts "5) $" + new[4].to_s
-                puts "6) $" + new[5].to_s
-                puts "7) $" + new[6].to_s
-                puts "8) $" + new[7].to_s
-                puts "9) $" + new[8].to_s
-                puts "10) $" + new[9].to_s
-                
+                @@user.leaderboard
                 self.display_menu
                 
             when 4
