@@ -21,6 +21,35 @@ class User < ActiveRecord::Base
                     puts "High Score: $" + final[0].to_s
     end 
 
+    def cheat_codes
+
+        schoice = gets.chomp
+                if schoice == "topsecret123"
+                    choice1 = {"Delete highest score" => 1,
+                               "Create/change your High score" => 2
+                    }
+            choice = @@prompt.select("Welcome, Cheater. What would you like to do?", choice1)
+                    if choice == 1
+                        Game.all.group_by{|g| g.user_balance}.max[1][0].delete
+                    elsif choice == 2
+                        if !(Game.all.map{|g| g.user_id}.include?(self.id))
+                            puts "What would you like your high score to be?"
+                            choice2 = gets.chomp.to_i
+                            top = Game.create(user_id: self.id, user_balance: choice2)
+                        else
+                            puts "What would you like your high score to be?"
+                            cheat_balance = gets.chomp.to_i
+                            user = Game.find_by(user_id: self.id)
+                            user.update(user_balance: cheat_balance)
+                        #   = Us  r.find_by(name: 'David')
+                        # user.update(name: 'Dave')
+                        #.id
+                        end
+                    end
+                  end 
+   
+    end
+
     def leaderboard
         new = Game.all.group_by{|g| g.user_balance}.max(10)
                 first_id = Game.all.group_by{|g| g.user_balance}.max(10)[0][1][0][:user_id]

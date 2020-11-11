@@ -184,7 +184,8 @@ class CLI
         choices = { "Start game" => 1,
                     "Take the tutorial" => 2,
                     "Check all time leaderboards" => 3,
-                    "Check your high scores" => 4
+                    "Check your high scores" => 4,
+                    "" =>5
         }
         action = @@prompt.select("What would you like to do?", choices)
         case action
@@ -273,6 +274,12 @@ class CLI
             when 4
                 @@user.high_scores
                 self.display_menu
+
+            when 5
+                @@user.cheat_codes
+                self.display_menu
+        
+               
         end
         
         self.tenam_3pm_hours(10)
@@ -292,6 +299,7 @@ class CLI
         puts 
         puts "It is now 4p.m, the stock market is now closed!"
         puts "You've ended the day with a total amount of $#{@net_liquidating_value}!!"
+        self.display_menu
     end
 end
     
