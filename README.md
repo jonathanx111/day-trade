@@ -1,7 +1,7 @@
 # day-trade
 
 # DJ-CLI app notes/pitch
-Description: An app where users can learn and practice day trading with false money. Try to top the leaderboard and compete with friends! 
+Description: An app where users can learn and practice day trading with false money. You will be assigned a stock and will follow hour by hour updates with detailed stock informartion and have the choice to BUY SELL or HOLD. Try to top the leaderboard and compete with friends! 
 
 Utilize Alpha Advantage Stock Data Api, JSON gem, & TTY prompt gem.
 
